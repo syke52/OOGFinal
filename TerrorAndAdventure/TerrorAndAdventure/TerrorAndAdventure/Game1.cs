@@ -23,6 +23,8 @@ namespace TerrorAndAdventure
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 320;
+            graphics.PreferredBackBufferWidth = 512;
             Content.RootDirectory = "Content";
         }
 

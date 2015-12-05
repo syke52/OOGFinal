@@ -30,17 +30,24 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Maps\BegginerIndoor.tmx">
-      <Name>BegginerIndoor</Name>
-    </Compile>
-    <Compile Include="Maps\BegginerOutdoor.tmx">
-      <Name>BegginerOutdoor</Name>
+    <Compile Include="TileSets\roguelikeDungeon_transparent2x.png">
+      <Name>roguelikeDungeon_transparent2x</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Maps\BegginerIndoor._Overlay.csv">
-      <Name>BegginerIndoor._Overlay</Name>
+    <Compile Include="TileSets\roguelikeSheet_transparent2x.png">
+      <Name>roguelikeSheet_transparent2x</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Maps\Outdoor.tmx">
+      <Name>Outdoor</Name>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
