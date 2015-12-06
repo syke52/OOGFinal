@@ -8,7 +8,7 @@ namespace TerrorAndAdventure
 {
     class MapLoader
     {
-        public static void MapLoader(string filePath)
+        public static void MapLoaderr(string filePath)
         {
             //Create a new XML document and load the selected save file
             XmlDocument loadFile = new XmlDocument();

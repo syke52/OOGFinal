@@ -1,4 +1,3 @@
-//
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,15 +18,30 @@ namespace TerrorAndAdventure
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private StartScene startScene;
+        private HelpScene helpScene;
+        private ActionScene actionScene;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            Content.RootDirectory = "Content";
             graphics.PreferredBackBufferHeight = 320;
             graphics.PreferredBackBufferWidth = 512;
-            Content.RootDirectory = "Content";
         }
 
+        private void HideAll()
+        {
+            GameScene gs = null;
+            foreach (GameComponent item in Components)
+            {
+                if (item is GameScene)
+                {
+                    gs = (GameScene)item;
+                    gs.hide();
+                }
+            }
+        }
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -37,6 +51,8 @@ namespace TerrorAndAdventure
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Shared.stage = new Vector2(graphics.PreferredBackBufferWidth,
+                graphics.PreferredBackBufferHeight);
 
             base.Initialize();
         }
@@ -47,8 +63,17 @@ namespace TerrorAndAdventure
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
+            //Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            startScene = new StartScene(this, spriteBatch);
+            helpScene = new HelpScene(this, spriteBatch);
+            actionScene = new ActionScene(this, spriteBatch);
+
+            //scenes go here.
+            this.Components.Add(startScene);
+            this.Components.Add(helpScene);
+            this.Components.Add(actionScene);
+            startScene.show();
 
             // TODO: use this.Content to load your game content here
         }
@@ -74,6 +99,44 @@ namespace TerrorAndAdventure
                 this.Exit();
 
             // TODO: Add your update logic here
+            int selectedIndex = 0;
+            KeyboardState ks = Keyboard.GetState();
+            if (startScene.Enabled)
+            {
+                selectedIndex = startScene.Menu.SelectedIndex;
+                if (selectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
+                {
+                    HideAll();
+                    actionScene.show();
+                }
+                if (selectedIndex == 1 && ks.IsKeyDown(Keys.Enter))
+                {
+                    HideAll();
+                    helpScene.show();
+                }
+                if (selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
+                {
+                    HideAll();
+                    //helpScene.show();
+                }
+                if (selectedIndex == 3 && ks.IsKeyDown(Keys.Enter))
+                {
+                    HideAll();
+                    //helpScene.show();
+                }
+                if (selectedIndex == 4 && ks.IsKeyDown(Keys.Enter))
+                {
+                    Exit();
+                }
+            }
+            if (actionScene.Enabled || helpScene.Enabled)
+            {
+                if (ks.IsKeyDown(Keys.Escape))
+                {
+                    HideAll();
+                    startScene.show();
+                }
+            }
 
             base.Update(gameTime);
         }
