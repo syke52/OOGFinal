@@ -30,6 +30,8 @@ namespace TerrorAndAdventure
         private int tileWidth;
         private int tileHeight;
         private List<Rectangle> frames;
+        public List<Rectangle> collisions;
+        public List<Rectangle> poe;
         Game game;
         public Map(Game game, SpriteBatch spriteBatch, string fileName )
             : base(game)
@@ -69,7 +71,6 @@ namespace TerrorAndAdventure
                     int x = (j * ((int)TILEDIMENSION.X+SPACING)) + SPACING;
                     int y = (i * ((int)TILEDIMENSION.Y+SPACING)) + SPACING;
                     Rectangle r = new Rectangle(x, y, (int)TILEDIMENSION.X, (int)TILEDIMENSION.Y);
-
                     frames.Add(r);
                 }
             }
@@ -133,6 +134,24 @@ namespace TerrorAndAdventure
             XmlNodeList image = xmlD.GetElementsByTagName("image");
             int imgHeight = int.Parse(image[0].Attributes["height"].Value);
             int imgWidth = int.Parse(image[0].Attributes["width"].Value);
+
+            XmlNodeList collision = xmlD.GetElementsByTagName("tileset");
+            foreach (XmlNode item in collision)
+            {
+                collisions.Add(new Rectangle( int.Parse(item.Attributes["x"].Value), 
+                        int.Parse(item.Attributes["y"].Value),
+                        int.Parse(item.Attributes["width"].Value),
+                        int.Parse(item.Attributes["height"].Value)));
+            }
+            XmlNodeList poes = xmlD.GetElementsByTagName("tileset");
+            foreach (XmlNode item in poes)
+            {
+                poe.Add(new Rectangle( int.Parse(item.Attributes["x"].Value), 
+                        int.Parse(item.Attributes["y"].Value),
+                        int.Parse(item.Attributes["width"].Value),
+                        int.Parse(item.Attributes["height"].Value)));
+            }
+
             buildMap(imgWidth, imgHeight, tileSource, tiles);
         }
     }
