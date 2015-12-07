@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="10" tilewidth="32" tileheight="32" nextobjectid="15">
  <tileset firstgid="1" name="roguelikeSheet_transparent2x" tilewidth="32" tileheight="32" spacing="2" margin="2" tilecount="1767">
-  <image source="../GameAssets/Tiles/Roguelike pack/Spritesheet/roguelikeSheet_transparent2x.png" width="1940" height="1056"/>
+  <image source="roguelikeSheet_transparent2x.png" width="1940" height="1056"/>
  </tileset>
  <layer name="Ground" width="16" height="10">
   <data>
