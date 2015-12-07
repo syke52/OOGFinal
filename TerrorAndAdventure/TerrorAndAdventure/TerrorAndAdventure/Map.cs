@@ -135,22 +135,22 @@ namespace TerrorAndAdventure
             int imgHeight = int.Parse(image[0].Attributes["height"].Value);
             int imgWidth = int.Parse(image[0].Attributes["width"].Value);
 
-            XmlNodeList collision = xmlD.GetElementsByTagName("tileset");
-            foreach (XmlNode item in collision)
-            {
-                collisions.Add(new Rectangle( int.Parse(item.Attributes["x"].Value), 
-                        int.Parse(item.Attributes["y"].Value),
-                        int.Parse(item.Attributes["width"].Value),
-                        int.Parse(item.Attributes["height"].Value)));
-            }
-            XmlNodeList poes = xmlD.GetElementsByTagName("tileset");
-            foreach (XmlNode item in poes)
-            {
-                poe.Add(new Rectangle( int.Parse(item.Attributes["x"].Value), 
-                        int.Parse(item.Attributes["y"].Value),
-                        int.Parse(item.Attributes["width"].Value),
-                        int.Parse(item.Attributes["height"].Value)));
-            }
+            //XmlNodeList collision = xmlD.GetElementsByTagName("tileset");
+            //foreach (XmlNode item in collision)
+            //{
+            //    collisions.Add(new Rectangle( int.Parse(item.Attributes["x"].Value), 
+            //            int.Parse(item.Attributes["y"].Value),
+            //            int.Parse(item.Attributes["width"].Value),
+            //            int.Parse(item.Attributes["height"].Value)));
+            //}
+            //XmlNodeList poes = xmlD.GetElementsByTagName("tileset");
+            //foreach (XmlNode item in poes)
+            //{
+            //    poe.Add(new Rectangle( int.Parse(item.Attributes["x"].Value), 
+            //            int.Parse(item.Attributes["y"].Value),
+            //            int.Parse(item.Attributes["width"].Value),
+            //            int.Parse(item.Attributes["height"].Value)));
+            //}
 
             buildMap(imgWidth, imgHeight, tileSource, tiles);
         }

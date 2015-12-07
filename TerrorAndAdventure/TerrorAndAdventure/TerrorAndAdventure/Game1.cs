@@ -21,7 +21,7 @@ namespace TerrorAndAdventure
         private StartScene startScene;
         private HelpScene helpScene;
         private ActionScene actionScene;
-        Map outdoor;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -69,15 +69,13 @@ namespace TerrorAndAdventure
             helpScene = new HelpScene(this, spriteBatch);
             actionScene = new ActionScene(this, spriteBatch);
 
-            outdoor = new Map(this, spriteBatch, "E:\\P2370OOG\\OOGFinal\\TerrorAndAdventure\\TerrorAndAdventure\\TerrorAndAdventureContent\\Maps\\Indoor.tmx");
-
-            this.Components.Add(outdoor);
+            
 
             //scenes go here.
-            //this.Components.Add(startScene);
-            //this.Components.Add(helpScene);
-            //this.Components.Add(actionScene);
-            //startScene.show();
+            this.Components.Add(startScene);
+            this.Components.Add(helpScene);
+            this.Components.Add(actionScene);
+            startScene.show();
 
             // TODO: use this.Content to load your game content here
         }

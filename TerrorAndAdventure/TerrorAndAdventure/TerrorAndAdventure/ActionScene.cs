@@ -22,15 +22,15 @@ namespace TerrorAndAdventure
         Bat bat;
         Vector2 position;
         Vector2 speed = new Vector2(4,0);
+        Map outdoor;
+        Game game;
         public ActionScene(Game game, SpriteBatch spriteBatch)
             : base(game)
         {
-            // TODO: Construct any child components here
-            this.spriteBatch = spriteBatch;
-            tex = game.Content.Load<Texture2D>("Images/Bat");
-            position = new Vector2(Shared.stage.X / 2 - tex.Width / 2, Shared.stage.Y - tex.Width);
-            bat = new Bat(game, spriteBatch, tex, position, speed);
-            this.Components.Add(bat);
+            this.game = game;
+            outdoor = new Map(game, spriteBatch, "E:\\P2370OOG\\OOGFinal\\TerrorAndAdventure\\TerrorAndAdventure\\TerrorAndAdventureContent\\Maps\\Indoor.tmx");
+
+            this.Components.Add(outdoor);
         }
 
         /// <summary>
