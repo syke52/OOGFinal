@@ -61,11 +61,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Images\Bat.png">
-      <Name>Bat</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Images\helpImage.png">
       <Name>helpImage</Name>
       <Importer>TextureImporter</Importer>
@@ -83,11 +78,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Images\heroWalk.png">
-      <Name>heroWalk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Images\Walk.png">
       <Name>Walk</Name>
       <Importer>TextureImporter</Importer>

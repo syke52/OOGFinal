@@ -21,7 +21,7 @@ namespace TerrorAndAdventure
         List<Rectangle> collisions;
         List<Rectangle> poe;
         ActionScene actionscene;
-        Rectangle stage = new Rectangle(0, 0, (int)Shared.stage.X, (int)Shared.stage.Y);
+        Rectangle[] stage = { new Rectangle(0, -10, 512, 10), new Rectangle(0, 320, 512, 10), new Rectangle(-10, 0, 10, 320), new Rectangle(512, 0, 10, 320) };
         public Map Map
         {
             get { return map; }
@@ -68,9 +68,12 @@ namespace TerrorAndAdventure
                     player.Position -= player.Speed;
                 }
             }
-            if (!full.Intersects(stage))
+            foreach (Rectangle item in stage)
             {
-                player.Position -= player.Speed;
+                if (playerRect.Intersects(item))
+                {
+                    player.Position -= player.Speed;
+                }
             }
             foreach (Rectangle item in poe)
             {
@@ -81,34 +84,40 @@ namespace TerrorAndAdventure
                     if ((actionscene.CScene < 3 && player.Position.X > Shared.stage.X/2))
                     {
                         actionscene.Scene --;
-                        player.Position = new Vector2(player.Position.X - 416, player.Position.Y);
+                        player.Position = new Vector2(player.Position.X - 420, player.Position.Y);
+                        player.setDelay(20, 7);
                         
                     }
                     else if ((actionscene.CScene < 3 && player.Position.X < Shared.stage.X/2))
                     {
                            actionscene.Scene ++;
-                           player.Position = new Vector2(player.Position.X + 416, player.Position.Y);
+                           player.Position = new Vector2(player.Position.X + 420, player.Position.Y);
+                           player.setDelay(20, 4);
                     }
                     else if ( (actionscene.CScene==3 && player.Position.X < Shared.stage.X/2))
                     {
                         actionscene.Scene ++;
-                        player.Position = new Vector2(player.Position.X +40, player.Position.Y);
+                        player.Position = new Vector2(player.Position.X +60, player.Position.Y);
+                        player.setDelay(20, 7);
                     }
                     else if ( (actionscene.CScene==4 && player.Position.X < Shared.stage.X/2))
                     {
                         actionscene.Scene --;
-                        player.Position = new Vector2(player.Position.X -40, player.Position.Y);
+                        player.Position = new Vector2(player.Position.X +60, player.Position.Y);
+                        player.setDelay(20, 7);
                     }
                     else if ((actionscene.CScene > 3 && player.Position.X > Shared.stage.X/2))
                     {
                         actionscene.Scene ++;
-                        player.Position = new Vector2(player.Position.X - 416, player.Position.Y);
+                        player.Position = new Vector2(player.Position.X - 420, player.Position.Y);
+                        player.setDelay(20, 7);
                         
                     }
                     else if ((actionscene.CScene > 3 && player.Position.X < Shared.stage.X/2))
                     {
                            actionscene.Scene --;
-                           player.Position = new Vector2(player.Position.X + 416, player.Position.Y);
+                           player.Position = new Vector2(player.Position.X + 420, player.Position.Y);
+                           player.setDelay(20, 4);
                     }
                     
                 }

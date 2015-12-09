@@ -500,7 +500,6 @@
   <collision id="51" x="0" y="224" width="32" height="96"/>
    <collision id="52" x="352" y="160" width="32" height="64"/>
    <collision id="53" x="416" y="64" width="32" height="64"/>
-   <collision id="54" x="187" y="244" width="37" height="44"/>
    <collision id="56" x="0" y="0" width="512" height="96"/>
    <collision id="57" x="96" y="96" width="128" height="64"/>
    <collision id="58" x="480" y="96" width="32" height="224"/>
