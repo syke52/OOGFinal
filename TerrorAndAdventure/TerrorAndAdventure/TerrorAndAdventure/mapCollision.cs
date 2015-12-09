@@ -81,7 +81,7 @@ namespace TerrorAndAdventure
                 {
                     player.Speed = Vector2.Zero;
                     
-                    if ((actionscene.CScene < 3 && player.Position.X > Shared.stage.X/2))
+                    if ((actionscene.CScene < 4 && player.Position.X > Shared.stage.X/2))
                     {
                         actionscene.Scene --;
                         player.Position = new Vector2(player.Position.X - 420, player.Position.Y);
