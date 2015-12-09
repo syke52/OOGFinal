@@ -28,7 +28,7 @@ namespace TerrorAndAdventure
             : base(game)
         {
             this.game = game;
-            outdoor = new Map(game, spriteBatch, "E:\\P2370OOG\\OOGFinal\\TerrorAndAdventure\\TerrorAndAdventure\\TerrorAndAdventureContent\\Maps\\Indoor.tmx");
+            outdoor = new Map(game, spriteBatch, "E:\\P2370OOG\\OOGFinal\\TerrorAndAdventure\\TerrorAndAdventure\\TerrorAndAdventureContent\\Maps\\Outdoor.tmx");
 
             this.Components.Add(outdoor);
         }

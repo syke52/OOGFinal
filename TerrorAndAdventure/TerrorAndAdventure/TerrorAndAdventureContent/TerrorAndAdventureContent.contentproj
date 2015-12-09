@@ -71,14 +71,36 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Maps\Cave-1.tmx">
+      <Name>Cave-1</Name>
+    </Content>
+    <Content Include="Maps\Cave-2.tmx">
+      <Name>Cave-2</Name>
+    </Content>
+    <Content Include="Maps\Cave-3.tmx">
+      <Name>Cave-3</Name>
+    </Content>
+    <Content Include="Maps\Cave-4.tmx">
+      <Name>Cave-4</Name>
+    </Content>
+    <Content Include="Maps\Forest-1.tmx">
+      <Name>Forest-1</Name>
+    </Content>
+    <Content Include="Maps\Forest-2.tmx">
+      <Name>Forest-2</Name>
+    </Content>
+    <Content Include="Maps\Forest-3.tmx">
+      <Name>Forest-3</Name>
+    </Content>
+    <Content Include="Maps\Indoor.tmx">
+      <Name>Indoor</Name>
+    </Content>
     <Content Include="Maps\Outdoor.tmx">
       <Name>Outdoor</Name>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Maps\Indoor.tmx">
-      <Name>Indoor</Name>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
