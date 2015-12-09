@@ -92,36 +92,36 @@ namespace TerrorAndAdventure
         {
             // TODO: Add your update code here
             KeyboardState ks = Keyboard.GetState();
-            if (ks.IsKeyDown(Keys.S))
+            if (ks.IsKeyDown(Keys.S)||ks.IsKeyDown(Keys.Down))
             {
                 fIndex = 0;
                 lIndex = 2;
-                speed.Y = 2;
+                speed.Y = 3;
                 speed.X = 0;
 
                 delayCounter++;
             }
-            else if (ks.IsKeyDown(Keys.A))
+            else if (ks.IsKeyDown(Keys.A) || ks.IsKeyDown(Keys.Left))
             {
                 fIndex = 3;
                 lIndex = 5;
                 speed.Y = 0;
-                speed.X =-2;
+                speed.X =-3;
                 delayCounter++;
             }
-            else if (ks.IsKeyDown(Keys.D))
+            else if (ks.IsKeyDown(Keys.D) || ks.IsKeyDown(Keys.Right))
             {
                 fIndex = 6;
                 lIndex = 8;
                 speed.Y = 0;
-                speed.X = 2;
+                speed.X = 3;
                 delayCounter++;
             }
-            else if (ks.IsKeyDown(Keys.W))
+            else if (ks.IsKeyDown(Keys.W) || ks.IsKeyDown(Keys.Up))
             {
                 fIndex = 9;
                 lIndex = 11;
-                speed.Y = -2;
+                speed.Y = -3;
                 speed.X = 0;
                 
                 delayCounter++;
@@ -164,7 +164,11 @@ namespace TerrorAndAdventure
         }
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X-12, (int)position.Y-39, 25, 10);
+            return new Rectangle((int)position.X+12, (int)position.Y+39, 25, 10);
+        }
+        public Rectangle getFullBounds()
+        {
+            return new Rectangle((int)position.X, (int)position.Y,(int)dimension.X, (int)dimension.Y);
         }
     }
 }

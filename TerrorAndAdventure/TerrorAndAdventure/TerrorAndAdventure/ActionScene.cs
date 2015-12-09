@@ -69,7 +69,8 @@ namespace TerrorAndAdventure
             }
 
             player = new PlayerToken(game, spriteBatch, game.Content.Load<Texture2D>("Images/Walk"), new Vector2(Shared.stage.X/2,Shared.stage.Y/2), 10);
-            col = new mapCollision(game, player, start, this);
+            col = new mapCollision(game, player, forest[0], this);
+            this.Components.Add(col);
             this.Components.Add(player);
         }
 
@@ -91,7 +92,7 @@ namespace TerrorAndAdventure
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
-            if (scene != cScene)
+            if (scene != cScene && scene<8)
             {
                 int i;
                 if (scene<4)
@@ -103,7 +104,7 @@ namespace TerrorAndAdventure
                 }
                 else{
                     i = scene-4;
-                    col.Map = cave[1];
+                    col.Map = cave[i];
                     cave[i].Enabled = true;
                     cave[i].Visible = true;
                 }
@@ -115,7 +116,7 @@ namespace TerrorAndAdventure
                 }
                 else if (cScene < 4)
                 {
-                    i = scene;
+                    i = cScene;
                     forest[i].Enabled = false;
                     forest[i].Visible = false;
                 }
