@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Text;
 using System.Xml;
+using System.IO;
 
 
 namespace TerrorAndAdventure
@@ -117,6 +118,8 @@ namespace TerrorAndAdventure
         }
         public void mapLoader(string filePath)
         {
+            collisions = new List<Rectangle>();
+            poe = new List<Rectangle>();
             XmlDocument xmlD = new XmlDocument();
             xmlD.Load(filePath);
             XmlNodeList tileList = xmlD.GetElementsByTagName("tile");
@@ -158,7 +161,6 @@ namespace TerrorAndAdventure
                             int.Parse(item.Attributes["height"].Value)));
                 }
             }
-            
 
             buildMap(imgWidth, imgHeight, tileSource, tiles);
         }
