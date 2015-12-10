@@ -75,10 +75,12 @@
   <ItemGroup>
     <Compile Include="AboutScene.cs" />
     <Compile Include="ActionScene.cs" />
-    <Compile Include="Bat.cs" />
+    <Compile Include="BackgroundImage.cs" />
     <Compile Include="BattleScene.cs" />
     <Compile Include="GameScene.cs" />
     <Compile Include="helpScene.cs" />
+    <Compile Include="HeroIdle.cs" />
+    <Compile Include="HeroWalk.cs" />
     <Compile Include="HowToScene.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="mapCollision.cs" />

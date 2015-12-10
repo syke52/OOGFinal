@@ -9,28 +9,45 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace TerrorAndAdventure
 {
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class BattleScene : GameScene
+    public class BattleScene : Microsoft.Xna.Framework.DrawableGameComponent
     {
+        GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D tex;
-        Bat bat;
-        Vector2 position;
-        Vector2 speed = new Vector2(4, 0);
-        public BattleScene(Game game, SpriteBatch spriteBatch)
+        BackgroundImage background;
+        HeroIdle heroIdle;
+        Texture2D heroTexIdle;
+        Texture2D backgroundImage;
+
+        public BattleScene(Game game, SpriteBatch spriteBatch, GraphicsDeviceManager graphics, int cScene)
             : base(game)
         {
             // TODO: Construct any child components here
             this.spriteBatch = spriteBatch;
-            tex = game.Content.Load<Texture2D>("Images/Bat");
-            position = new Vector2(Shared.stage.X / 2 - tex.Width / 2, Shared.stage.Y - tex.Width);
-            bat = new Bat(game, spriteBatch, tex, position, speed);
-            this.Components.Add(bat);
+            this.graphics = graphics;
+
+            if (cScene <= 4)
+            {
+                backgroundImage = Game.Content.Load<Texture2D>("BattleImages/backgroundForest");
+            }
+            else if (cScene > 4)
+            {
+                backgroundImage = Game.Content.Load<Texture2D>("BattleImages/backgroundCave");
+            }
+            Rectangle r = new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            background = new BackgroundImage(Game, spriteBatch, backgroundImage, r);
+            this.Game.Components.Add(background);
+
+            //hero idle animation
+            heroTexIdle = Game.Content.Load<Texture2D>("BattleImages/antylamon_sprite_idle2");
+            Vector2 posIdle = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight/ 2);
+            int delayIdle = 30;
+            heroIdle = new HeroIdle(Game, spriteBatch, heroTexIdle, posIdle, delayIdle);
+            this.Game.Components.Add(heroIdle);
         }
 
         /// <summary>
@@ -40,6 +57,7 @@ namespace TerrorAndAdventure
         public override void Initialize()
         {
             // TODO: Add your initialization code here
+
 
             base.Initialize();
         }
@@ -53,6 +71,14 @@ namespace TerrorAndAdventure
             // TODO: Add your update code here
 
             base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(backgroundImage, new Rectangle(0, 0, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), Color.White);
+            spriteBatch.End();
+            base.Draw(gameTime);
         }
     }
 }
