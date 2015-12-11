@@ -85,39 +85,39 @@ namespace TerrorAndAdventure
                     {
                         actionscene.Scene --;
                         player.Position = new Vector2(player.Position.X - 420, player.Position.Y);
-                        player.setDelay(20, 7);
+                        player.setDelay(7, 7, 10, 20, Vector2.Zero);
                         
                     }
                     else if ((actionscene.CScene < 3 && player.Position.X < Shared.stage.X/2))
                     {
                            actionscene.Scene ++;
                            player.Position = new Vector2(player.Position.X + 420, player.Position.Y);
-                           player.setDelay(20, 4);
+                           player.setDelay(4, 4, 10, 20, Vector2.Zero);
                     }
                     else if ( (actionscene.CScene==3 && player.Position.X < Shared.stage.X/2))
                     {
                         actionscene.Scene ++;
                         player.Position = new Vector2(player.Position.X +60, player.Position.Y);
-                        player.setDelay(20, 7);
+                        player.setDelay(7, 7, 10, 20, Vector2.Zero);
                     }
                     else if ( (actionscene.CScene==4 && player.Position.X < Shared.stage.X/2))
                     {
                         actionscene.Scene --;
                         player.Position = new Vector2(player.Position.X +60, player.Position.Y);
-                        player.setDelay(20, 7);
+                        player.setDelay(7, 7, 10, 20, Vector2.Zero);
                     }
                     else if ((actionscene.CScene > 3 && player.Position.X > Shared.stage.X/2))
                     {
                         actionscene.Scene ++;
                         player.Position = new Vector2(player.Position.X - 420, player.Position.Y);
-                        player.setDelay(20, 7);
+                        player.setDelay(7, 7, 10, 20, Vector2.Zero);
                         
                     }
                     else if ((actionscene.CScene > 3 && player.Position.X < Shared.stage.X/2))
                     {
                            actionscene.Scene --;
                            player.Position = new Vector2(player.Position.X + 420, player.Position.Y);
-                           player.setDelay(20, 4);
+                           player.setDelay(4,4, 10, 20, Vector2.Zero);
                     }
                     
                 }

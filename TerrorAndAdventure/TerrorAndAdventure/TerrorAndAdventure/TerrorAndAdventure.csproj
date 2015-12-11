@@ -85,12 +85,16 @@
     <Compile Include="Map.cs" />
     <Compile Include="mapCollision.cs" />
     <Compile Include="MenuComponent.cs" />
+    <Compile Include="messageBox.cs" />
+    <Compile Include="PhoenixIdleHFlipped.cs" />
     <Compile Include="PlayerToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Shared.cs" />
+    <Compile Include="ShineGreymonIdle.cs" />
     <Compile Include="StartScene.cs" />
+    <Compile Include="TextBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameThumbnail.png">

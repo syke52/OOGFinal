@@ -68,6 +68,36 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleImages\antylamon_Ball.png">
+      <Name>antylamon_Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="BattleImages\antylamon_run.png">
+      <Name>antylamon_run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="BattleImages\antylamon_small_attack.png">
+      <Name>antylamon_small_attack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="BattleImages\antylamon_sprite_idle2.png">
+      <Name>antylamon_sprite_idle2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="BattleImages\backgroundCave.png">
+      <Name>backgroundCave</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="BattleImages\backgroundForest.png">
+      <Name>backgroundForest</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Maps\Cave-1.tmx">
       <Name>Cave-1</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -76,6 +106,21 @@
       <Name>Forest-3</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Include="BattleImages\PFF_Diabolos_Sprite.png">
+      <Name>PFF_Diabolos_Sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="BattleImages\shinegreymon_idle.png">
+      <Name>shinegreymon_idle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="BattleImages\zhuqiaomon_idle_walk.png">
+      <Name>zhuqiaomon_idle_walk</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Images\Walk.png">
@@ -106,11 +151,19 @@
     <Content Include="Maps\Indoor.tmx">
       <Name>Indoor</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Maps\Outdoor.tmx">
       <Name>Outdoor</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fonts\pixelFont.spritefont">
+      <Name>pixelFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

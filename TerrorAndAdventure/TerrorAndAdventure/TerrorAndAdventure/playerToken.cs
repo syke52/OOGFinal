@@ -22,8 +22,15 @@ namespace TerrorAndAdventure
         private Texture2D tex;
         private Vector2 position;
         private Vector2 speed = new Vector2(0, 0);
-        private int wDelay = 0;
-        private int wFrame; 
+        private int wDelay = -1;
+
+        public int WDelay
+        {
+            get { return wDelay; }
+            set { wDelay = value; }
+        }
+        private int wFrame;
+        private int tDelay;
 
         public Vector2 Speed
         {
@@ -38,17 +45,19 @@ namespace TerrorAndAdventure
         }
         private Vector2 dimension;
         private List<Rectangle> frames;
-        private int frameIndex = 0;
+        private int frameIndex = 1;
         private int delay;
         private int delayCounter;
         private int fIndex = 0;
         private int lIndex = 2;
-        private bool custom = false;
-        private int[] cFrames;
-        private int[] cDelay;
-        private int cMaxIndex;
-        private int cIndex = 0;
-        private Vector2[] cSpeed;
+        private bool encounter;
+
+        public bool Encounter
+        {
+            get { return encounter; }
+            set { encounter = value; }
+        }
+        //BattleMath bMath = new BattleMath;
 
         public PlayerToken(Game game, SpriteBatch spriteBatch,
             Texture2D tex,
@@ -100,38 +109,35 @@ namespace TerrorAndAdventure
         {
             // TODO: Add your update code here
             KeyboardState ks = Keyboard.GetState();
-            if (wDelay<0 && !custom)
+            if (wDelay<0 )
             {
                 if (ks.IsKeyDown(Keys.S) || ks.IsKeyDown(Keys.Down))
                 {
                     fIndex = 0;
                     lIndex = 2;
-                    speed.Y = 3;
+                    speed.Y = 2;
                     speed.X = 0;
 
                     delayCounter++;
-                }
-                else if (ks.IsKeyDown(Keys.A) || ks.IsKeyDown(Keys.Left))
+                }else if (ks.IsKeyDown(Keys.A) || ks.IsKeyDown(Keys.Left))
                 {
                     fIndex = 3;
                     lIndex = 5;
                     speed.Y = 0;
-                    speed.X = -3;
+                    speed.X = -2;
                     delayCounter++;
-                }
-                else if (ks.IsKeyDown(Keys.D) || ks.IsKeyDown(Keys.Right))
+                }else if (ks.IsKeyDown(Keys.D) || ks.IsKeyDown(Keys.Right))
                 {
                     fIndex = 6;
                     lIndex = 8;
                     speed.Y = 0;
-                    speed.X = 3;
+                    speed.X = 2;
                     delayCounter++;
-                }
-                else if (ks.IsKeyDown(Keys.W) || ks.IsKeyDown(Keys.Up))
+                } else if (ks.IsKeyDown(Keys.W) || ks.IsKeyDown(Keys.Up))
                 {
                     fIndex = 9;
                     lIndex = 11;
-                    speed.Y = -3;
+                    speed.Y = -2;
                     speed.X = 0;
 
                     delayCounter++;
@@ -142,7 +148,7 @@ namespace TerrorAndAdventure
                 }
                 if (frameIndex > lIndex || frameIndex < fIndex)
                 {
-                    frameIndex = fIndex;
+                    frameIndex = fIndex+1;
                 }
 
                 if (delayCounter > delay)
@@ -156,21 +162,26 @@ namespace TerrorAndAdventure
 
                 }
             }
-            if (custom)
+            if (wDelay >= 0)
             {
-                delayCounter ++;
-                if (delayCounter > cDelay[cIndex])
+
+                delayCounter++;
+                if (frameIndex > lIndex || frameIndex < fIndex)
                 {
-                    cIndex++;
-                    if (cIndex>cMaxIndex)
-                    {
-                        custom = false;
-                    }
+                    frameIndex = fIndex + 1;
                 }
-            }
-            else if (wDelay >= 0)
-            {
-                frameIndex = wFrame;
+
+                if (delayCounter > tDelay)
+                {
+                    frameIndex++;
+                    //encounter = bMath.EncounterCance();
+                    if (frameIndex > lIndex)
+                    {
+                        frameIndex = fIndex;
+                    }
+                    delayCounter = 0;
+
+                }
                 wDelay--;
             }
             
@@ -181,20 +192,12 @@ namespace TerrorAndAdventure
         {
             spriteBatch.Begin();
             //version 4
-            if (!custom)
-            {
                 if (frameIndex >= 0)
                 {
                     position += speed;
                     spriteBatch.Draw(tex, position, frames.ElementAt<Rectangle>(frameIndex), Color.White);
 
                 }
-            }
-            else
-            {
-                spriteBatch.Draw(tex, position, frames.ElementAt<Rectangle>(cFrames[cIndex - 1]), Color.White);
-                position += cSpeed[cIndex - 1];
-            }
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -207,19 +210,13 @@ namespace TerrorAndAdventure
         {
             return new Rectangle((int)position.X, (int)position.Y,(int)dimension.X, (int)dimension.Y);
         }
-        public void setDelay(int delay, int frame)
+        public void setDelay(int fIndex, int lIndex,int delay, int wDelay, Vector2 speed)
         {
-            wDelay = delay;
-            wFrame = frame;
-        }
-        public void customAnimation(Vector2[] speeds, int[] frame, int[] delay )
-        {
-            cFrames = frame;
-            cSpeed = speeds;
-            cDelay = delay;
-            cIndex = 0;
-            cMaxIndex = frame.Length;
-            custom = true;
+            this.fIndex = fIndex;
+            this.lIndex = lIndex;
+            this.tDelay = delay;
+            this.wDelay = wDelay;
+            this.speed = speed;
         }
     }
 }
